@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const problemSets = [
   {
     title: "Designing Sustainable Cities",
