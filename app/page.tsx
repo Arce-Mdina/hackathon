@@ -1,3 +1,9 @@
+'use client'
+
+import { useState } from "react";
+
+import Image from "next/image";
+
 const problemSets = [
   {
     title: "Designing Sustainable Cities",
@@ -64,55 +70,126 @@ const problemSets2 = [
   },
 ];
 
+const galleryImages = [
+  {
+    src: "/winner1.png",
+    alt: "Our winner from the Grade 8/9s!",
+    caption: "Our winner from the Grade 8/9s!",
+  },
+  {
+    src: "/winner2.jpg",
+    alt: "Our winner from the Grade 6/7s!",
+    caption: "Our winner from the Grade 6/7s!",
+  },
+  {
+    src: "/winner1highlight.jpg",
+    alt: "Award ceremony highlights",
+    caption: "Our winner's presentation!",
+  },
+  {
+    src: "/winner2highlight.jpg",
+    alt: "Award ceremony highlights",
+    caption: "Our winner's presentation!",
+  },{
+    src: "/highlight2.jpg",
+    alt: "Team Alpha winning the Hackathon",
+    caption: "Key moments in Grade 8/9 presentation",
+  },
+  {
+    src: "/highlight3.jpg",
+    alt: "Team Alpha winning the Hackathon",
+    caption: "Key moments in Grade 6/7 presentation",
+  },
+  {
+    src: "/highlight5.jpg",
+    alt: "Team Alpha winning the Hackathon",
+    caption: "Key moments in Grade 8/9 presentation",
+  },
+  {
+    src: "/highlight4.jpg",
+    alt: "Team Alpha winning the Hackathon",
+    caption: "Key moments in Grade 6/7 presentation",
+  },
+];
+
 export default function Home() {
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white p-8 sm:p-16 font-sans">
-      <header className="text-center mb-16">
-        <h1 className="text-4xl sm:text-6xl font-bold mb-4 tracking-tight">Hackathon Problem Sets</h1>
-        <p className="text-lg sm:text-xl text-gray-300">Get inspired. Start building. Change the world.</p>
-      </header>
+    <div>
+      <section className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white p-8 sm:p-16 font-sans">
+        <header className="text-center mb-16">
+          <h1 className="text-4xl sm:text-6xl font-bold mb-4 tracking-tight">Hackathon Highlights</h1>
+          <p className="text-lg sm:text-xl text-gray-300">Celebrating our winners and memorable moments</p>
+        </header>
 
-      <h1 className="text-2xl sm:text-4xl font-bold mb-4 tracking-tight">Grade 6-7</h1>
+        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+          {galleryImages.map(({ src, alt, caption }, index) => (
+            <div key={index} className="group relative rounded-xl overflow-hidden shadow-lg bg-gray-900 hover:shadow-blue-500/50 transition-shadow duration-300 cursor-pointer">
+              <Image 
+                src={src} 
+                alt={alt} 
+                width={400} 
+                height={300} 
+                className="object-cover w-full h-64 sm:h-48 md:h-64 transition-transform duration-300 group-hover:scale-105" 
+                priority={index === 0}
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 px-4 py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-sm sm:text-base font-semibold">{caption}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      <main className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-        {problemSets2.map((set, index) => (
-          <div
-            key={index}
-            // href={set.link}
-            className="group bg-gray-800 border border-gray-700 p-6 rounded-xl transition duration-300 hover:border-blue-500 hover:scale-[1.02] shadow-md hover:shadow-blue-500/20"
-          >
-            <h2 className="text-xl font-semibold mb-2 group-hover:text-blue-400 transition">{set.title}</h2>
-            <p className="text-gray-400">{set.description}</p>
-            <span className="inline-block mt-4 text-sm text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-              {/* View Details → */}
-              {set.links}
-            </span>
-          </div>
-        ))}
-      </main>
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white p-8 sm:p-16 font-sans">
 
-      <h1 className="text-2xl sm:text-4xl font-bold mb-4 tracking-tight mt-[50px]">Grade 8-9</h1>
+        <header className="text-center mb-16">
+          <h1 className="text-4xl sm:text-6xl font-bold mb-4 tracking-tight">Hackathon Problem Sets</h1>
+          <p className="text-lg sm:text-xl text-gray-300">Get inspired. Start building. Change the world.</p>
+        </header>
 
-      <main className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-        {problemSets.map((set, index) => (
-          <div
-            key={index}
-            // href={set.link}
-            className="group bg-gray-800 border border-gray-700 p-6 rounded-xl transition duration-300 hover:border-blue-500 hover:scale-[1.02] shadow-md hover:shadow-blue-500/20"
-          >
-            <h2 className="text-xl font-semibold mb-2 group-hover:text-blue-400 transition">{set.title}</h2>
-            <p className="text-gray-400">{set.description}</p>
-            <span className="inline-block mt-4 text-sm text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-              {/* View Details → */}
-              {set.links}
-            </span>
-          </div>
-        ))}
-      </main>
+        <h1 className="text-2xl sm:text-4xl font-bold mb-4 tracking-tight">Grade 6-7</h1>
 
-      <footer className="mt-24 text-center text-gray-500 text-sm">
-        &copy; {new Date().getFullYear()} NAIS Hackathon. All rights reserved.
-      </footer>
+        <main className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+          {problemSets2.map((set, index) => (
+            <div
+              key={index}
+              // href={set.link}
+              className="group bg-gray-800 border border-gray-700 p-6 rounded-xl transition duration-300 hover:border-blue-500 hover:scale-[1.02] shadow-md hover:shadow-blue-500/20"
+            >
+              <h2 className="text-xl font-semibold mb-2 group-hover:text-blue-400 transition">{set.title}</h2>
+              <p className="text-gray-400">{set.description}</p>
+              <span className="inline-block mt-4 text-sm text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                {/* View Details → */}
+                {set.links}
+              </span>
+            </div>
+          ))}
+        </main>
+
+        <h1 className="text-2xl sm:text-4xl font-bold mb-4 tracking-tight mt-[50px]">Grade 8-9</h1>
+
+        <main className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+          {problemSets.map((set, index) => (
+            <div
+              key={index}
+              // href={set.link}
+              className="group bg-gray-800 border border-gray-700 p-6 rounded-xl transition duration-300 hover:border-blue-500 hover:scale-[1.02] shadow-md hover:shadow-blue-500/20"
+            >
+              <h2 className="text-xl font-semibold mb-2 group-hover:text-blue-400 transition">{set.title}</h2>
+              <p className="text-gray-400">{set.description}</p>
+              <span className="inline-block mt-4 text-sm text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                {/* View Details → */}
+                {set.links}
+              </span>
+            </div>
+          ))}
+        </main>
+
+        <footer className="mt-24 text-center text-gray-500 text-sm">
+          &copy; {new Date().getFullYear()} NAIS Hackathon. All rights reserved.
+        </footer>
+      </div>
     </div>
   );
 }
