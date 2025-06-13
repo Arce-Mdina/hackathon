@@ -189,6 +189,10 @@ export default function Home() {
         <footer className="mt-24 text-center text-gray-500 text-sm">
           &copy; {new Date().getFullYear()} NAIS Hackathon. All rights reserved.
         </footer>
+
+        <footer className="mt-4 text-center text-gray-500 text-sm">
+          Founded by William Xu and Philip Xu
+        </footer>
       </div>
     </div>
   );
