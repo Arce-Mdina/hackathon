@@ -110,8 +110,6 @@ const galleryImages = [
   },
 ];
 
-
-
 export default function Home() {
 
   return (
