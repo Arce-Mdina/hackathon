@@ -85,7 +85,7 @@ const galleryImages = [
     caption: "Our winner's presentation!",
   },
   {
-    src: "/winner2highlight.jpg",
+    src: "/winner2highlights.jpg",
     alt: "Award ceremony highlights",
     caption: "Our winner's presentation!",
   },{
